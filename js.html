@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    请输入：<input id="ques">
+    <button id="btn">点击</button>
+    <div>展示结果：<span id="res"></span></div>
+
+    <script>
+        //获取元素
+        const inputul=document.getElementById('ques')
+        const btn=document.getElementById('btn')
+        const res=document.getElementById('res')
+        function hand(){
+            console.log(inputul.value)
+            res.textContent=inputul.value
+        }
+        
+        btn.addEventListener('click',hand)
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chat">
+        <!-- vue当中的模板指令，v-model -->
+        <!-- 绑定 -->
+        请输入：<input v-model="ques"/>
+        <!-- vue当中的模板指令，v-on:    -->
+    <button v-on:click="handleClick">点击</button>
+
+    <!-- 插值表达式{{}} -->
+    <div>展示结果：<span >{{res}}</span></div>
+
+
+    </div>
+    <script type="module">
+        import{createApp,ref,reactive}from'vue'
+        const app=createApp({
+            setup(){
+                //正常业务逻辑
+                
+                //创建响应式变量(基础数据类型ref，对象数据类型reactive)
+                let ques=ref('')
+                let res=ref('')
+                function handleClick(){
+                    //如果是基础数据类型，运算时，必须取value，绑定时，直接绑
+                    res.value = ques.value
+                }
+                //需要在模板中绑定的变量或方法，通过setup的return即可
+                return{
+                    ques,
+                    res,
+                    handleClick
+                }
+
+            }
+        })
+        //挂载
+        app.mount('#chat')
+    </script>
+</body>
+</html>
